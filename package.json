@@ -1,0 +1,28 @@
+{
+  "name": "@cucu/eslint-config",
+  "version": "1.0.0",
+  "description": "Config ESLint compartida de CUCU (flat config). Fuente única de reglas transversales — hoy: cucu/no-voseo (tuteo boliviano).",
+  "license": "UNLICENSED",
+  "private": true,
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js"
+  },
+  "files": [
+    "index.js",
+    "lib/",
+    "rules/"
+  ],
+  "scripts": {
+    "test": "node --test"
+  },
+  "peerDependencies": {
+    "eslint": ">=9"
+  },
+  "devDependencies": {
+    "eslint": "^9.39.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
