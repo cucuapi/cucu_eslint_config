@@ -40,8 +40,8 @@ Engancharlo al `lint` que el CI ya corre (cero step/bash aparte):
 
 ## Distribución (git dependency, sin registry)
 
-Repo **privado** `cucuapi/cucu_eslint_config`. Los consumidores lo instalan como dependencia git
-(no requiere montar un npm registry privado):
+Repo **público** `cucuapi/cucu_eslint_config` (es solo una config de lint — cero IP/secreto, como
+airbnb/standard). Los consumidores lo instalan como dependencia git, **sin token ni registry**:
 
 ```jsonc
 // package.json del consumidor
@@ -50,10 +50,9 @@ Repo **privado** `cucuapi/cucu_eslint_config`. Los consumidores lo instalan como
 }
 ```
 
-- **Local (devs):** instala por SSH con el acceso que el dev ya tiene a los repos privados de CUCU.
-- **CI:** reusar el PAT que el repo ya tiene para gitops (`GITOPS_TOKEN`) via
-  `git config url."https://x-access-token:$GITOPS_TOKEN@github.com/".insteadOf "https://github.com/"`
-  antes del `npm/yarn install`. **Cero secret nuevo.**
+- **Local y CI:** `npm ci`/`yarn` lo clona sin auth (repo público). El CI del consumidor **no
+  necesita ningún secret nuevo**.
+- Versionado por **tag** (`#v1.0.0`). Bump = mover el tag en el consumidor (o `#main` para seguir HEAD).
 
 ## Silenciar voseo-como-dato
 
