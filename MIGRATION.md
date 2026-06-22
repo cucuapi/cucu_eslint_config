@@ -7,14 +7,14 @@ Objetivo: que la regla anti-voseo (y futuras reglas transversales) viva en **una
 
 | Repo | ESLint previo | Estado | Nota |
 |---|---|---|---|
-| `cucu_mobile` | ✅ sí (expo lint + CI) | ✅ **MIGRADO** | dep `#v1.0.0`, `cucu.configs.recommended` en `eslint.config.js`, bash borrado, step CI borrado, CLAUDE.md actualizado. Verificado: regla dispara + `npm run lint` exit 0. |
+| `mayorista_mobile` | ✅ sí (expo lint + CI) | ✅ **MIGRADO** | dep `#v1.0.0`, `cucu.configs.recommended` en `eslint.config.js`, bash borrado, step CI borrado, CLAUDE.md actualizado. Verificado: regla dispara + `npm run lint` exit 0. |
 | `cui-agent-service` | ✅ sí (`eslint src`) | ⏳ pendiente | Tiene eslint → conversión directa, **con wrinkles** (abajo). Hoy guarda con el **scorer Mastra runtime** (`anti-voseo.ts`) + el fix estático de `webhook.routes.ts` ya hecho. |
 | `cucu_medusa_mayoristas` | ❌ no | ⏳ pendiente | **Montar ESLint 9 flat** desde cero. Bash `check-voseo.sh` queda como guarda interina. |
 | `cucu_medusa_backend` | ❌ no | ⏳ pendiente | **Montar ESLint 9 flat** desde cero. Bash `check-voseo.sh` (agregado 2026-06-20) queda como guarda interina. |
 
 ## Runbook por repo
 
-### Consumidor que YA tiene ESLint (patrón `cucu_mobile`, aplica a `cui-agent-service`)
+### Consumidor que YA tiene ESLint (patrón `mayorista_mobile`, aplica a `cui-agent-service`)
 1. `package.json` devDep: `"@cucu/eslint-config": "github:cucuapi/cucu_eslint_config#v1.0.0"`.
 2. `eslint.config.*`: agregar `cucu.configs.recommended` al array flat (require/import del paquete).
 3. `npm install` (actualiza lock; repo público → sin token).
