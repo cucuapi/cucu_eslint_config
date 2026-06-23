@@ -9,8 +9,8 @@ Objetivo: que la regla anti-voseo (y futuras reglas transversales) viva en **una
 |---|---|---|---|
 | `mayorista_mobile` | ✅ sí (expo lint + CI) | ✅ **MIGRADO** | dep `#v1.0.0`, `cucu.configs.recommended` en `eslint.config.js`, bash borrado, step CI borrado, CLAUDE.md actualizado. Verificado: regla dispara + `npm run lint` exit 0. |
 | `cui-agent-service` | ✅ sí (`eslint src`) | ⏳ pendiente | Tiene eslint → conversión directa, **con wrinkles** (abajo). Hoy guarda con el **scorer Mastra runtime** (`anti-voseo.ts`) + el fix estático de `webhook.routes.ts` ya hecho. |
-| `cucu_medusa_mayoristas` | ❌ no | ⏳ pendiente | **Montar ESLint 9 flat** desde cero. Bash `check-voseo.sh` queda como guarda interina. |
-| `cucu_medusa_backend` | ❌ no | ⏳ pendiente | **Montar ESLint 9 flat** desde cero. Bash `check-voseo.sh` (agregado 2026-06-20) queda como guarda interina. |
+| `cucu_medusa_mayoristas` | ❌ no | ⏳ pendiente | **Montar ESLint 9 flat** desde cero. Bash `check-voseo.sh` queda como guarda interina. |  **[panel cucu_medusa_mayoristas ELIMINADO 2026-06-23 - no recrear]**
+| `cucu_mayorista_backend` | ❌ no | ⏳ pendiente | **Montar ESLint 9 flat** desde cero. Bash `check-voseo.sh` (agregado 2026-06-20) queda como guarda interina. |
 
 ## Runbook por repo
 
@@ -28,7 +28,7 @@ localizado, NO con exclusión global:
 - `src/core/guardrails.ts`, `src/core/canned-config.ts`, `src/channels/whatsapp/onboarding.ts`: son **comentarios** → la regla ya los ignora (AST), no tocar.
 - `src/channels/whatsapp/meta-send-tools.ts` (descripciones de tools que el LLM lee: "Usá esto…", "ofrecés…") → **arreglar a tuteo** (además reduce que el LLM imite el voseo del prompt), no silenciar.
 
-### Consumidor SIN ESLint (`cucu_medusa_mayoristas`, `cucu_medusa_backend`)
+### Consumidor SIN ESLint (`cucu_medusa_mayoristas`, `cucu_mayorista_backend`)  **[panel cucu_medusa_mayoristas ELIMINADO 2026-06-23 - no recrear]**
 1. Montar **ESLint 9 flat** acorde al proyecto:
    - mayoristas (Vite React TS): `eslint`, `typescript-eslint`, `eslint-plugin-react-hooks`, `eslint-plugin-react-refresh`.
    - backend (Medusa Node TS): `eslint`, `typescript-eslint`.
