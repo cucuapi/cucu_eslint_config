@@ -1,6 +1,6 @@
 {
   "name": "@cucu/eslint-config",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Config ESLint compartida de CUCU (flat config). Fuente única de reglas transversales — hoy: cucu/no-voseo (tuteo boliviano).",
   "license": "UNLICENSED",
   "private": true,

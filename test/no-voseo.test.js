@@ -39,6 +39,16 @@ test("cucu/no-voseo", () => {
         code: 'const t = "necesitás revisar esto";',
         errors: [{ messageId: "voseo" }],
       },
+      {
+        // "entrá" (entrar) — el residual que el set viejo no cazaba
+        code: 'const t = "Entrá al modo vendedor";',
+        errors: [{ messageId: "voseo" }],
+      },
+      {
+        // ciclo de pedido del dominio mayorista (1 report por nodo)
+        code: "const t = `Despachá el pedido`;",
+        errors: [{ messageId: "voseo" }],
+      },
     ],
   });
 });
